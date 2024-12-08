@@ -4,9 +4,13 @@
 #include "vehicle.h"
 
 class IC : public Vehicle {
+private:
+    int currGallons;
 public:
-    void fillUp(int x) {
-        cout << "Filling with " << x << " gallons of gasoline." << endl;
+    IC() : currGallons(0) {}
+    void fillUp(int x) override {
+        currGallons += x;
+        cout << "Filling with " << x << " gallons. Current gallons: " << currGallons << "." << endl;
     }
 };
 
