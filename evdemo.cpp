@@ -6,23 +6,12 @@ using namespace std;
 #include "ic.h"
 
 int main() {
-    // Demonstrate non-virtual behavior
-    Vehicle *transportationThing = new Vehicle;
-    Vehicle *model3 = new EV;
+   Vehicle *model3 = new EV;
     Vehicle *mustang = new IC;
 
-    cout << "Non-virtual calls:" << endl;
-    transportationThing->fillUp(20);
-    model3->fillUp(20);
-    mustang->fillUp(20);
+    model3->fillUp(30);  // Calls EV implementation
+    mustang->fillUp(15); // Calls IC implementation
 
-    // Change Vehicle::fillUp to virtual and recompile
-    cout << "\nVirtual calls:" << endl;
-    transportationThing->fillUp(20);
-    model3->fillUp(20);
-    mustang->fillUp(20);
-
-    delete transportationThing;
     delete model3;
     delete mustang;
 
