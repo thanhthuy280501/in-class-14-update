@@ -4,9 +4,13 @@
 #include "vehicle.h"
 
 class EV : public Vehicle {
+private:
+    int currCharge;
 public:
-    void fillUp(int x) {
-        cout << "Charging with " << x << " kWh of electricity." << endl;
+    EV() : currCharge(0) {}
+    void fillUp(int x) override {
+        currCharge += x;
+        cout << "Charging with " << x << " kWh. Current charge: " << currCharge << " kWh." << endl;
     }
 };
 
